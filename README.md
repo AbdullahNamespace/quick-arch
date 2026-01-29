@@ -264,7 +264,7 @@ Assuming your JSON features are:
   "files": [
     {
       "path": "docker-compose.yml",
-      "condition": "$USER_SERVICE == true || $PAYMENT_SERVICE == true",
+      "condition": "$USER_SERVICE == true",
       "content": "version: '3.8'\nservices:\n  ..."
     }
   ]
