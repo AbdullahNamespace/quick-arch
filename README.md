@@ -5,9 +5,10 @@
 **Universal Project Structure Generator built in Rust**
 
 ![Crates.io](https://img.shields.io/crates/v/quick-arch)
-![License](https://img.shields.io/crates/l/mit)
-![Rust Version](https://img.shields.io/badge/rust-2021-stable-red.svg)
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![License](https://img.shields.io/crates/l/quick-arch)
+![Rust Edition](https://img.shields.io/badge/edition-2024-blue)
+![Build](https://img.shields.io/badge/build-passing-brightgreen)
+![Downloads](https://img.shields.io/crates/d/quick-arch)
 
 [Features](#-key-features) • [Installation](#-installation) • [Usage](#-usage) • [Configuration](#-configuration) • [Examples](#-examples)
 
