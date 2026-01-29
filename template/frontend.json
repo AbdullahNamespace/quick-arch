@@ -1,0 +1,237 @@
+{
+    "project": {
+        "name": "a-clean-frontend",
+        "type": "frontend",
+        "description": "Clean Architecture React Frontend with TypeScript and State Management options."
+    },
+    "features": {
+        "state_management": "reducer",
+        "docker": true,
+        "testing": true,
+        "internationalization": true
+    },
+    "directories": [
+        "docs/assets",
+        "docs/assets/images",
+        "docs/assets/videos",
+        "docs/assets/diagrams",
+        "docs/assets/examples",
+        "scripts",
+        "scripts/git-hooks",
+        "tests/unit",
+        "tests/integration",
+        "tests/e2e",
+        "src/assets",
+        "src/assets/fonts",
+        "src/assets/icons",
+        "src/assets/images",
+        "src/core/config",
+        "src/core/constants",
+        "src/core/errors",
+        "src/core/hooks",
+        "src/core/router",
+        "src/core/services",
+        "src/core/types",
+        "src/core/utils",
+        {
+            "path": "src/core/state",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/app",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/auth",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/user",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/store",
+            "condition": "$STATE_MANAGEMENT == 'redux'"
+        },
+        {
+            "path": "src/core/providers",
+            "condition": "$STATE_MANAGEMENT == 'redux'"
+        },
+        "src/shared/components/errors",
+        "src/shared/components/layouts",
+        "src/shared/components/navigation",
+        "src/shared/components/routing",
+        "src/shared/components/seo",
+        "src/shared/components/ui",
+        "src/shared/localization",
+        "src/features",
+        "src/mocks",
+        "src/styles"
+    ],
+    "files": [
+        "docs/README.md",
+        "docs/project-overview.md",
+        "docs/api-reference.md",
+        "docs/api-guide.md",
+        "docs/routes-guide.md",
+        "docs/theming.md",
+        "docs/demo.md",
+        "docs/installation.md",
+        "docs/deployment.md",
+        "docs/development.md",
+        "docs/testing.md",
+        "docs/faq.md",
+        "docs/changelog.md",
+        "docs/decisions.md",
+        "scripts/create-structure.sh",
+        "scripts/setup.sh",
+        "scripts/build.sh",
+        "scripts/test.sh",
+        "scripts/deploy.sh",
+        "scripts/git-hooks/pre-commit.sh",
+        "scripts/git-hooks/pre-push.sh",
+        "scripts/git-hooks/pre-msg.sh",
+        "scripts/git-hooks/pre-merge.sh",
+        "scripts/git-hooks/install-hooks.sh",
+        "tests/unit/example.test.ts",
+        "tests/integration/api.test.ts",
+        "tests/e2e/ui.test.ts",
+        "src/core/config/appConfig.ts",
+        "src/core/config/apiConfig.ts",
+        "src/core/config/envConfig.ts",
+        "src/core/constants/routes.ts",
+        "src/core/errors/AppError.ts",
+        "src/core/errors/errorTypes.ts",
+        "src/core/errors/errorHandler.ts",
+        "src/core/hooks/useLanguage.ts",
+        "src/core/hooks/useAuth.ts",
+        "src/core/hooks/useNavigationHistory.ts",
+        "src/core/hooks/useCurrentRoute.ts",
+        "src/core/hooks/useRouteCache.ts",
+        {
+            "path": "src/core/providers/AuthProvider.tsx",
+            "condition": "$STATE_MANAGEMENT == 'redux'"
+        },
+        "src/core/router/AppRouter.tsx",
+        "src/core/services/httpClient.ts",
+        "src/core/services/authService.ts",
+        "src/core/services/userService.ts",
+        "src/core/services/productService.ts",
+        "src/core/types/routing.ts",
+        "src/core/utils/secureStorage.ts",
+        "src/core/utils/auth.ts",
+        "src/shared/components/errors/ErrorBoundary.tsx",
+        "src/shared/components/errors/InlineError.tsx",
+        "src/shared/components/errors/GlobalErrorToast.tsx",
+        "src/shared/components/layouts/RootLayout.tsx",
+        "src/shared/components/layouts/ProtectedLayout.tsx",
+        "src/shared/components/layouts/AdminLayout.tsx",
+        "src/shared/components/layouts/AuthLayout.tsx",
+        "src/shared/components/navigation/NavigationMenu.tsx",
+        "src/shared/components/navigation/MobileHeader.tsx",
+        "src/shared/components/navigation/MobileNavigation.tsx",
+        "src/shared/components/navigation/Sidebar.tsx",
+        "src/shared/components/navigation/TopControls.tsx",
+        "src/shared/components/routing/ProtectedRoute.tsx",
+        "src/shared/components/routing/RouteErrorBoundary.tsx",
+        "src/shared/components/routing/RouteTransition.tsx",
+        "src/shared/components/routing/NavigationLink.tsx",
+        "src/shared/components/seo/SEO.tsx",
+        "src/shared/components/ui/OptimizedImage.tsx",
+        "src/shared/components/ui/Breadcrumbs.tsx",
+        "src/shared/components/ui/LanguageSwitcher.tsx",
+        "src/shared/localization/index.ts",
+        "src/shared/localization/i18n.ts",
+        "src/shared/localization/ar.json",
+        "src/shared/localization/en.json",
+        "src/shared/localization/fr.json",
+        "src/mocks/products.mock.ts",
+        "src/mocks/users.mock.ts",
+        "src/styles/global.css",
+        "src/styles/theme.ts",
+        "src/styles/variables.css",
+        "src/App.tsx",
+        {
+            "path": "src/core/state/app/types.ts",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/app/reducer.ts",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/app/context.tsx",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/app/hooks.ts",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/app/index.ts",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/auth/types.ts",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/auth/reducer.ts",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/auth/context.tsx",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/auth/hooks.ts",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/auth/index.ts",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/user/types.ts",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/user/reducer.ts",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/user/context.tsx",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/user/hooks.ts",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/user/index.ts",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/state/index.ts",
+            "condition": "$STATE_MANAGEMENT == 'reducer'"
+        },
+        {
+            "path": "src/core/store/index.ts",
+            "condition": "$STATE_MANAGEMENT == 'redux'"
+        },
+        {
+            "path": "src/core/store/authSlice.ts",
+            "condition": "$STATE_MANAGEMENT == 'redux'"
+        },
+        {
+            "path": "src/core/store/userSlice.ts",
+            "condition": "$STATE_MANAGEMENT == 'redux'"
+        },
+        "Dockerfile",
+        "Dockerfile.prod",
+        "docker-compose.yml",
+        "docker-compose.prod.yml",
+        ".env",
+        ".env.production"
+    ]
+}

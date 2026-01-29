@@ -1,0 +1,1196 @@
+{
+    "project": {
+        "name": "fastapi_clean_architecture",
+        "type": "fastapi",
+        "description": "FastAPI project with Clean Architecture, CQRS, DDD, and EDA support"
+    },
+    "features": {
+        "cqrs": true,
+        "ddd": true,
+        "eda": true,
+        "kubernetes": true,
+        "monitoring": true,
+        "docker": true,
+        "testing": true
+    },
+    "directories": [
+        ".github/workflows",
+        ".github/ISSUE_TEMPLATE",
+        ".vscode",
+        "docs",
+        "docs/assets",
+        "docs/assets/images",
+        "docs/assets/diagrams",
+        "docs/assets/examples",
+        "scripts",
+        "scripts/database",
+        "scripts/git-hooks",
+        "tests",
+        "tests/unit",
+        "tests/unit/domain",
+        "tests/unit/application",
+        "tests/unit/shared",
+        "tests/integration",
+        "tests/integration/api",
+        "tests/integration/database",
+        "tests/integration/external",
+        "tests/e2e",
+        "tests/performance",
+        "tests/fixtures",
+        "tests/mocks",
+        "alembic",
+        "alembic/versions",
+        "docker",
+        "docker/configs",
+        {
+            "path": "k8s",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "monitoring",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "monitoring/grafana",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "monitoring/alerts",
+            "condition": "$KUBERNETES == true"
+        },
+        "src",
+        "src/core",
+        "src/core/config",
+        "src/core/constants",
+        "src/core/enums",
+        "src/core/exceptions",
+        "src/core/security",
+        "src/core/middleware",
+        "src/core/dependencies",
+        "src/core/utils",
+        "src/core/telemetry",
+        "src/core/events",
+        "src/domain",
+        "src/domain/entities",
+        "src/domain/value_objects",
+        {
+            "path": "src/domain/aggregates",
+            "condition": "$DDD == true"
+        },
+        "src/domain/repositories",
+        "src/domain/events",
+        "src/domain/services",
+        {
+            "path": "src/domain/specifications",
+            "condition": "$DDD == true"
+        },
+        "src/domain/policies",
+        "src/domain/validators",
+        "src/domain/exceptions",
+        "src/application",
+        "src/application/dto",
+        "src/application/mappers",
+        "src/application/services",
+        "src/application/validators",
+        "src/application/projections",
+        "src/application/exceptions",
+        {
+            "path": "src/application/commands",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/commands/users",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/commands/orders",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/command_handlers",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/queries",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/query_handlers",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/read_models",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/use_cases",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/users",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/auth",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/products",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/orders",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/payments",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/event_handlers",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "src/application/handlers",
+            "condition": "$EDA == false"
+        },
+        "src/infrastructure",
+        "src/infrastructure/database",
+        "src/infrastructure/database/models",
+        {
+            "path": "src/infrastructure/database/models/read",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/infrastructure/database/models/write",
+            "condition": "$CQRS == true"
+        },
+        "src/infrastructure/database/mappers",
+        "src/infrastructure/repositories",
+        {
+            "path": "src/infrastructure/repositories/read",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/infrastructure/repositories/write",
+            "condition": "$CQRS == true"
+        },
+        "src/infrastructure/external_services",
+        "src/infrastructure/external_services/email",
+        "src/infrastructure/external_services/email/templates",
+        "src/infrastructure/external_services/sms",
+        "src/infrastructure/external_services/payment",
+        "src/infrastructure/external_services/storage",
+        "src/infrastructure/cache",
+        "src/infrastructure/messaging",
+        "src/infrastructure/messaging/rabbitmq",
+        "src/infrastructure/messaging/kafka",
+        {
+            "path": "src/infrastructure/event_store",
+            "condition": "$EDA == true"
+        },
+        "src/infrastructure/auth",
+        "src/infrastructure/logging",
+        "src/presentation",
+        "src/presentation/api",
+        "src/presentation/api/v1",
+        "src/presentation/api/v1/endpoints",
+        {
+            "path": "src/presentation/api/v1/endpoints/commands",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/presentation/api/v1/endpoints/queries",
+            "condition": "$CQRS == true"
+        },
+        "src/presentation/api/v1/schemas",
+        {
+            "path": "src/presentation/api/v1/schemas/commands",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/presentation/api/v1/schemas/queries",
+            "condition": "$CQRS == true"
+        },
+        "src/presentation/api/v1/dependencies",
+        "src/presentation/api/v2",
+        "src/presentation/graphql",
+        "src/presentation/graphql/types",
+        "src/presentation/graphql/resolvers",
+        "src/presentation/websocket",
+        "src/presentation/cli",
+        "src/shared",
+        "src/shared/schemas",
+        "src/shared/types",
+        "src/shared/constants",
+        "src/tasks",
+        "src/tasks/jobs",
+        {
+            "path": "src/tasks/event_workers",
+            "condition": "$EDA == true"
+        }
+    ],
+    "files": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/cd.yml",
+        ".github/workflows/security.yml",
+        ".github/workflows/coverage.yml",
+        ".github/workflows/dependency-review.yml",
+        ".github/ISSUE_TEMPLATE/bug_report.yml",
+        ".github/ISSUE_TEMPLATE/feature_request.yml",
+        ".github/dependabot.yml",
+        ".github/CODEOWNERS",
+        ".vscode/settings.json",
+        ".vscode/launch.json",
+        ".vscode/extensions.json",
+        "docs/README.md",
+        "docs/project-overview.md",
+        "docs/architecture.md",
+        "docs/api-reference.md",
+        "docs/database-schema.md",
+        "docs/deployment.md",
+        "docs/development.md",
+        "docs/testing.md",
+        "docs/security.md",
+        "docs/performance.md",
+        "docs/contributing.md",
+        "docs/changelog.md",
+        "docs/faq.md",
+        {
+            "path": "docs/architecture-cqrs.md",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "docs/architecture-ddd.md",
+            "condition": "$DDD == true"
+        },
+        {
+            "path": "docs/architecture-eda.md",
+            "condition": "$EDA == true"
+        },
+        "scripts/setup.sh",
+        "scripts/dev.sh",
+        "scripts/test.sh",
+        "scripts/lint.sh",
+        "scripts/format.sh",
+        "scripts/build.sh",
+        "scripts/deploy.sh",
+        "scripts/clean.sh",
+        "scripts/security-scan.sh",
+        "scripts/generate-docs.sh",
+        "scripts/database/migrate.sh",
+        "scripts/database/seed.sh",
+        "scripts/database/backup.sh",
+        "scripts/database/restore.sh",
+        "scripts/git-hooks/pre-commit",
+        "scripts/git-hooks/pre-push",
+        "scripts/git-hooks/commit-msg",
+        "scripts/git-hooks/install-hooks.sh",
+        "tests/__init__.py",
+        "tests/conftest.py",
+        "tests/unit/__init__.py",
+        "tests/unit/domain/__init__.py",
+        "tests/unit/domain/test_user_entity.py",
+        "tests/unit/domain/test_value_objects.py",
+        "tests/unit/domain/test_business_rules.py",
+        "tests/unit/domain/test_domain_services.py",
+        "tests/unit/application/__init__.py",
+        "tests/unit/application/test_use_cases.py",
+        "tests/unit/application/test_services.py",
+        "tests/unit/application/test_validators.py",
+        "tests/unit/shared/__init__.py",
+        "tests/unit/shared/test_utils.py",
+        "tests/integration/__init__.py",
+        "tests/integration/api/__init__.py",
+        "tests/integration/api/test_auth_endpoints.py",
+        "tests/integration/api/test_user_endpoints.py",
+        "tests/integration/api/test_product_endpoints.py",
+        "tests/integration/api/test_order_endpoints.py",
+        "tests/integration/database/__init__.py",
+        "tests/integration/database/test_repositories.py",
+        "tests/integration/database/test_transactions.py",
+        "tests/integration/database/test_migrations.py",
+        "tests/integration/external/__init__.py",
+        "tests/integration/external/test_email_service.py",
+        "tests/integration/external/test_payment_service.py",
+        "tests/integration/external/test_storage_service.py",
+        "tests/e2e/__init__.py",
+        "tests/e2e/test_user_journey.py",
+        "tests/e2e/test_order_workflow.py",
+        "tests/e2e/test_payment_flow.py",
+        "tests/performance/__init__.py",
+        "tests/performance/test_load.py",
+        "tests/performance/test_stress.py",
+        "tests/performance/test_spike.py",
+        "tests/fixtures/__init__.py",
+        "tests/fixtures/users.py",
+        "tests/fixtures/products.py",
+        "tests/fixtures/orders.py",
+        "tests/fixtures/common.py",
+        "tests/mocks/__init__.py",
+        "tests/mocks/repositories.py",
+        "tests/mocks/services.py",
+        "tests/mocks/external_apis.py",
+        {
+            "path": "tests/unit/cqrs/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "tests/unit/cqrs/test_commands.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "tests/unit/cqrs/test_queries.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "tests/unit/cqrs/test_handlers.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "tests/integration/events/__init__.py",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "tests/integration/events/test_event_bus.py",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "tests/integration/events/test_event_handlers.py",
+            "condition": "$EDA == true"
+        },
+        "alembic/env.py",
+        "alembic/script.py.mako",
+        "alembic/versions/.gitkeep",
+        "docker/Dockerfile",
+        "docker/Dockerfile.dev",
+        "docker/Dockerfile.test",
+        "docker/docker-compose.yml",
+        "docker/docker-compose.dev.yml",
+        "docker/docker-compose.test.yml",
+        "docker/docker-compose.monitoring.yml",
+        "docker/.dockerignore",
+        "docker/configs/nginx.conf",
+        "docker/configs/redis.conf",
+        "docker/configs/postgres.conf",
+        {
+            "path": "docker/docker-compose.messaging.yml",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "docker/configs/rabbitmq.conf",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "docker/configs/kafka.conf",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "k8s/namespace.yaml",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "k8s/deployment.yaml",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "k8s/service.yaml",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "k8s/ingress.yaml",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "k8s/configmap.yaml",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "k8s/secrets.yaml",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "k8s/hpa.yaml",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "k8s/rabbitmq-deployment.yaml",
+            "condition": "$KUBERNETES == true && $EDA == true"
+        },
+        {
+            "path": "k8s/kafka-deployment.yaml",
+            "condition": "$KUBERNETES == true && $EDA == true"
+        },
+        {
+            "path": "monitoring/prometheus.yml",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "monitoring/loki-config.yml",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "monitoring/tempo-config.yml",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "monitoring/grafana/dashboards.json",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "monitoring/grafana/api-metrics.json",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "monitoring/grafana/business-metrics.json",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "monitoring/grafana/infrastructure.json",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "monitoring/alerts/api.yml",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "monitoring/alerts/database.yml",
+            "condition": "$KUBERNETES == true"
+        },
+        {
+            "path": "monitoring/alerts/infrastructure.yml",
+            "condition": "$KUBERNETES == true"
+        },
+        "src/__init__.py",
+        "src/core/__init__.py",
+        "src/core/config/__init__.py",
+        "src/core/config/settings.py",
+        "src/core/config/database.py",
+        "src/core/config/cache.py",
+        "src/core/config/auth.py",
+        "src/core/config/email.py",
+        "src/core/config/logging.py",
+        "src/core/config/cors.py",
+        "src/core/constants/__init__.py",
+        "src/core/constants/api_routes.py",
+        "src/core/constants/error_codes.py",
+        "src/core/constants/messages.py",
+        "src/core/constants/regex_patterns.py",
+        "src/core/enums/__init__.py",
+        "src/core/enums/user_status.py",
+        "src/core/enums/order_status.py",
+        "src/core/enums/payment_status.py",
+        "src/core/enums/error_types.py",
+        "src/core/exceptions/__init__.py",
+        "src/core/exceptions/base.py",
+        "src/core/exceptions/domain.py",
+        "src/core/exceptions/application.py",
+        "src/core/exceptions/infrastructure.py",
+        "src/core/exceptions/handlers.py",
+        "src/core/security/__init__.py",
+        "src/core/security/password.py",
+        "src/core/security/jwt.py",
+        "src/core/security/oauth2.py",
+        "src/core/security/permissions.py",
+        "src/core/security/rate_limiter.py",
+        "src/core/security/encryption.py",
+        "src/core/middleware/__init__.py",
+        "src/core/middleware/authentication.py",
+        "src/core/middleware/authorization.py",
+        "src/core/middleware/logging.py",
+        "src/core/middleware/error_handler.py",
+        "src/core/middleware/rate_limiter.py",
+        "src/core/middleware/cors.py",
+        "src/core/middleware/request_id.py",
+        "src/core/dependencies/__init__.py",
+        "src/core/dependencies/database.py",
+        "src/core/dependencies/auth.py",
+        "src/core/dependencies/cache.py",
+        "src/core/dependencies/pagination.py",
+        "src/core/dependencies/current_user.py",
+        "src/core/utils/__init__.py",
+        "src/core/utils/datetime.py",
+        "src/core/utils/validators.py",
+        "src/core/utils/formatters.py",
+        "src/core/utils/serializers.py",
+        "src/core/utils/id_generator.py",
+        "src/core/utils/file_handler.py",
+        "src/core/utils/response_builder.py",
+        "src/core/telemetry/__init__.py",
+        "src/core/telemetry/tracing.py",
+        "src/core/telemetry/metrics.py",
+        "src/core/telemetry/logging.py",
+        "src/core/telemetry/monitoring.py",
+        "src/core/events/__init__.py",
+        "src/core/events/event.py",
+        "src/core/events/event_bus.py",
+        "src/core/events/event_store.py",
+        "src/core/events/event_handler.py",
+        "src/domain/__init__.py",
+        "src/domain/entities/__init__.py",
+        "src/domain/entities/base.py",
+        "src/domain/entities/user.py",
+        "src/domain/entities/product.py",
+        "src/domain/entities/order.py",
+        "src/domain/entities/payment.py",
+        "src/domain/value_objects/__init__.py",
+        "src/domain/value_objects/email.py",
+        "src/domain/value_objects/phone_number.py",
+        "src/domain/value_objects/address.py",
+        "src/domain/value_objects/money.py",
+        "src/domain/value_objects/url.py",
+        "src/domain/value_objects/coordinate.py",
+        {
+            "path": "src/domain/aggregates/__init__.py",
+            "condition": "$DDD == true"
+        },
+        {
+            "path": "src/domain/aggregates/user_aggregate.py",
+            "condition": "$DDD == true"
+        },
+        {
+            "path": "src/domain/aggregates/order_aggregate.py",
+            "condition": "$DDD == true"
+        },
+        {
+            "path": "src/domain/aggregates/cart_aggregate.py",
+            "condition": "$DDD == true"
+        },
+        {
+            "path": "src/domain/aggregates/product_catalog_aggregate.py",
+            "condition": "$DDD == true"
+        },
+        "src/domain/repositories/__init__.py",
+        "src/domain/repositories/base.py",
+        "src/domain/repositories/user_repository.py",
+        "src/domain/repositories/product_repository.py",
+        "src/domain/repositories/order_repository.py",
+        {
+            "path": "src/domain/repositories/specifications.py",
+            "condition": "$DDD == true"
+        },
+        "src/domain/events/__init__.py",
+        "src/domain/events/base.py",
+        "src/domain/events/user_events.py",
+        "src/domain/events/order_events.py",
+        "src/domain/events/payment_events.py",
+        "src/domain/services/__init__.py",
+        "src/domain/services/user_domain_service.py",
+        "src/domain/services/pricing_service.py",
+        "src/domain/services/inventory_service.py",
+        "src/domain/services/shipping_service.py",
+        {
+            "path": "src/domain/specifications/__init__.py",
+            "condition": "$DDD == true"
+        },
+        {
+            "path": "src/domain/specifications/base.py",
+            "condition": "$DDD == true"
+        },
+        {
+            "path": "src/domain/specifications/user_specifications.py",
+            "condition": "$DDD == true"
+        },
+        {
+            "path": "src/domain/specifications/product_specifications.py",
+            "condition": "$DDD == true"
+        },
+        {
+            "path": "src/domain/specifications/order_specifications.py",
+            "condition": "$DDD == true"
+        },
+        "src/domain/policies/__init__.py",
+        "src/domain/policies/discount_policy.py",
+        "src/domain/policies/shipping_policy.py",
+        "src/domain/policies/refund_policy.py",
+        "src/domain/policies/loyalty_policy.py",
+        "src/domain/validators/__init__.py",
+        "src/domain/validators/business_rules.py",
+        "src/domain/validators/invariants.py",
+        "src/domain/validators/constraints.py",
+        "src/domain/exceptions/__init__.py",
+        "src/domain/exceptions/domain_exception.py",
+        "src/domain/exceptions/validation_exception.py",
+        "src/domain/exceptions/business_rule_exception.py",
+        "src/application/__init__.py",
+        {
+            "path": "src/application/commands/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/commands/base.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/commands/users/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/commands/users/create_user_command.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/commands/users/update_user_command.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/commands/users/delete_user_command.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/commands/orders/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/commands/orders/create_order_command.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/commands/orders/cancel_order_command.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/commands/orders/complete_order_command.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/command_handlers/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/command_handlers/base.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/command_handlers/user_command_handler.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/command_handlers/order_command_handler.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/queries/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/queries/base.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/queries/user_queries.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/queries/product_queries.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/queries/order_queries.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/queries/analytics_queries.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/query_handlers/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/query_handlers/base.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/query_handlers/user_query_handler.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/query_handlers/order_query_handler.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/read_models/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/read_models/user_read_model.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/read_models/order_read_model.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/read_models/analytics_read_model.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/application/use_cases/__init__.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/users/__init__.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/users/create_user.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/users/get_user.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/users/update_user.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/users/delete_user.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/users/list_users.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/users/search_users.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/auth/__init__.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/auth/register.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/auth/login.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/auth/logout.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/auth/refresh_token.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/auth/reset_password.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/auth/verify_email.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/auth/enable_2fa.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/products/__init__.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/products/create_product.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/products/get_product.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/products/update_product.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/products/delete_product.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/products/list_products.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/products/search_products.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/orders/__init__.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/orders/create_order.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/orders/get_order.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/orders/cancel_order.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/orders/complete_order.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/orders/list_orders.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/payments/__init__.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/payments/process_payment.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/payments/refund_payment.py",
+            "condition": "$CQRS == false"
+        },
+        {
+            "path": "src/application/use_cases/payments/verify_payment.py",
+            "condition": "$CQRS == false"
+        },
+        "src/application/dto/__init__.py",
+        "src/application/dto/base.py",
+        "src/application/dto/user_dto.py",
+        "src/application/dto/product_dto.py",
+        "src/application/dto/order_dto.py",
+        "src/application/dto/auth_dto.py",
+        "src/application/dto/pagination_dto.py",
+        "src/application/mappers/__init__.py",
+        "src/application/mappers/base.py",
+        "src/application/mappers/user_mapper.py",
+        "src/application/mappers/product_mapper.py",
+        "src/application/mappers/order_mapper.py",
+        "src/application/mappers/event_mapper.py",
+        "src/application/services/__init__.py",
+        "src/application/services/notification_service.py",
+        "src/application/services/email_service.py",
+        "src/application/services/cache_service.py",
+        "src/application/services/file_service.py",
+        "src/application/services/audit_service.py",
+        "src/application/validators/__init__.py",
+        "src/application/validators/user_validator.py",
+        "src/application/validators/product_validator.py",
+        "src/application/validators/order_validator.py",
+        {
+            "path": "src/application/event_handlers/__init__.py",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "src/application/event_handlers/base.py",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "src/application/event_handlers/user_event_handler.py",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "src/application/event_handlers/order_event_handler.py",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "src/application/event_handlers/payment_event_handler.py",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "src/application/event_handlers/notification_event_handler.py",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "src/application/handlers/__init__.py",
+            "condition": "$EDA == false"
+        },
+        {
+            "path": "src/application/handlers/user_event_handler.py",
+            "condition": "$EDA == false"
+        },
+        {
+            "path": "src/application/handlers/order_event_handler.py",
+            "condition": "$EDA == false"
+        },
+        {
+            "path": "src/application/handlers/payment_event_handler.py",
+            "condition": "$EDA == false"
+        },
+        "src/application/projections/__init__.py",
+        "src/application/projections/user_projection.py",
+        "src/application/projections/order_projection.py",
+        "src/application/projections/analytics_projection.py",
+        "src/application/exceptions/__init__.py",
+        "src/application/exceptions/use_case_exception.py",
+        "src/application/exceptions/service_exception.py",
+        "src/infrastructure/__init__.py",
+        "src/infrastructure/database/__init__.py",
+        "src/infrastructure/database/connection.py",
+        "src/infrastructure/database/session.py",
+        "src/infrastructure/database/base.py",
+        "src/infrastructure/database/models/__init__.py",
+        "src/infrastructure/database/models/user_model.py",
+        "src/infrastructure/database/models/product_model.py",
+        "src/infrastructure/database/models/order_model.py",
+        "src/infrastructure/database/models/payment_model.py",
+        {
+            "path": "src/infrastructure/database/models/read/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/infrastructure/database/models/read/user_read_model.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/infrastructure/database/models/read/order_read_model.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/infrastructure/database/models/write/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/infrastructure/database/models/write/user_write_model.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/infrastructure/database/models/write/order_write_model.py",
+            "condition": "$CQRS == true"
+        },
+        "src/infrastructure/database/mappers/__init__.py",
+        "src/infrastructure/database/mappers/base_mapper.py",
+        "src/infrastructure/database/mappers/user_mapper.py",
+        "src/infrastructure/database/mappers/order_mapper.py",
+        "src/infrastructure/repositories/__init__.py",
+        "src/infrastructure/repositories/base_repository.py",
+        "src/infrastructure/repositories/user_repository.py",
+        "src/infrastructure/repositories/product_repository.py",
+        "src/infrastructure/repositories/order_repository.py",
+        {
+            "path": "src/infrastructure/repositories/specification_executor.py",
+            "condition": "$DDD == true"
+        },
+        {
+            "path": "src/infrastructure/repositories/read/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/infrastructure/repositories/read/user_read_repository.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/infrastructure/repositories/read/order_read_repository.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/infrastructure/repositories/write/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/infrastructure/repositories/write/user_write_repository.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/infrastructure/repositories/write/order_write_repository.py",
+            "condition": "$CQRS == true"
+        },
+        "src/infrastructure/external_services/__init__.py",
+        "src/infrastructure/external_services/email/__init__.py",
+        "src/infrastructure/external_services/email/email_client.py",
+        "src/infrastructure/external_services/email/templates/welcome.html",
+        "src/infrastructure/external_services/email/templates/reset_password.html",
+        "src/infrastructure/external_services/email/templates/order_confirmation.html",
+        "src/infrastructure/external_services/sms/__init__.py",
+        "src/infrastructure/external_services/sms/twilio_client.py",
+        "src/infrastructure/external_services/payment/__init__.py",
+        "src/infrastructure/external_services/payment/stripe_client.py",
+        "src/infrastructure/external_services/payment/paypal_client.py",
+        "src/infrastructure/external_services/storage/__init__.py",
+        "src/infrastructure/external_services/storage/s3_client.py",
+        "src/infrastructure/external_services/storage/azure_blob_client.py",
+        "src/infrastructure/cache/__init__.py",
+        "src/infrastructure/cache/redis_client.py",
+        "src/infrastructure/cache/cache_service.py",
+        "src/infrastructure/messaging/__init__.py",
+        "src/infrastructure/messaging/message_bus.py",
+        "src/infrastructure/messaging/event_publisher.py",
+        "src/infrastructure/messaging/event_subscriber.py",
+        "src/infrastructure/messaging/rabbitmq/__init__.py",
+        "src/infrastructure/messaging/rabbitmq/publisher.py",
+        "src/infrastructure/messaging/rabbitmq/consumer.py",
+        "src/infrastructure/messaging/rabbitmq/event_listener.py",
+        "src/infrastructure/messaging/rabbitmq/connection.py",
+        "src/infrastructure/messaging/kafka/__init__.py",
+        "src/infrastructure/messaging/kafka/kafka_producer.py",
+        "src/infrastructure/messaging/kafka/kafka_consumer.py",
+        "src/infrastructure/messaging/kafka/connection.py",
+        {
+            "path": "src/infrastructure/event_store/__init__.py",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "src/infrastructure/event_store/event_store.py",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "src/infrastructure/event_store/event_repository.py",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "src/infrastructure/event_store/snapshot_store.py",
+            "condition": "$EDA == true"
+        },
+        "src/infrastructure/auth/__init__.py",
+        "src/infrastructure/auth/password_handler.py",
+        "src/infrastructure/auth/jwt_handler.py",
+        "src/infrastructure/auth/oauth2_handler.py",
+        "src/infrastructure/logging/__init__.py",
+        "src/infrastructure/logging/loggers.py",
+        "src/infrastructure/logging/filters.py",
+        "src/presentation/__init__.py",
+        "src/presentation/api/__init__.py",
+        "src/presentation/api/dependencies.py",
+        "src/presentation/api/exceptions.py",
+        "src/presentation/api/main.py",
+        "src/presentation/api/v1/__init__.py",
+        "src/presentation/api/v1/api.py",
+        "src/presentation/api/v1/endpoints/__init__.py",
+        "src/presentation/api/v1/endpoints/auth.py",
+        "src/presentation/api/v1/endpoints/users.py",
+        "src/presentation/api/v1/endpoints/products.py",
+        "src/presentation/api/v1/endpoints/orders.py",
+        "src/presentation/api/v1/endpoints/payments.py",
+        "src/presentation/api/v1/endpoints/health.py",
+        {
+            "path": "src/presentation/api/v1/endpoints/commands/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/presentation/api/v1/endpoints/commands/user_commands.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/presentation/api/v1/endpoints/commands/order_commands.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/presentation/api/v1/endpoints/queries/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/presentation/api/v1/endpoints/queries/user_queries.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/presentation/api/v1/endpoints/queries/order_queries.py",
+            "condition": "$CQRS == true"
+        },
+        "src/presentation/api/v1/schemas/__init__.py",
+        "src/presentation/api/v1/schemas/base.py",
+        "src/presentation/api/v1/schemas/user.py",
+        "src/presentation/api/v1/schemas/product.py",
+        "src/presentation/api/v1/schemas/order.py",
+        "src/presentation/api/v1/schemas/auth.py",
+        "src/presentation/api/v1/schemas/response.py",
+        "src/presentation/api/v1/schemas/pagination.py",
+        {
+            "path": "src/presentation/api/v1/schemas/commands/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/presentation/api/v1/schemas/commands/user_commands.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/presentation/api/v1/schemas/commands/order_commands.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/presentation/api/v1/schemas/queries/__init__.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/presentation/api/v1/schemas/queries/user_queries.py",
+            "condition": "$CQRS == true"
+        },
+        {
+            "path": "src/presentation/api/v1/schemas/queries/order_queries.py",
+            "condition": "$CQRS == true"
+        },
+        "src/presentation/api/v1/dependencies/__init__.py",
+        "src/presentation/api/v1/dependencies/auth.py",
+        "src/presentation/api/v1/dependencies/pagination.py",
+        "src/presentation/api/v1/dependencies/permission.py",
+        "src/presentation/api/v2/__init__.py",
+        "src/presentation/graphql/__init__.py",
+        "src/presentation/graphql/schema.py",
+        "src/presentation/graphql/types/__init__.py",
+        "src/presentation/graphql/types/user.py",
+        "src/presentation/graphql/types/product.py",
+        "src/presentation/graphql/types/order.py",
+        "src/presentation/graphql/resolvers/__init__.py",
+        "src/presentation/graphql/resolvers/user_resolver.py",
+        "src/presentation/graphql/resolvers/product_resolver.py",
+        "src/presentation/graphql/resolvers/order_resolver.py",
+        "src/presentation/websocket/__init__.py",
+        "src/presentation/websocket/manager.py",
+        "src/presentation/websocket/handlers.py",
+        "src/presentation/cli/__init__.py",
+        "src/presentation/cli/commands.py",
+        "src/presentation/cli/main.py",
+        "src/shared/__init__.py",
+        "src/shared/schemas/__init__.py",
+        "src/shared/schemas/base.py",
+        "src/shared/types/__init__.py",
+        "src/shared/types/id.py",
+        "src/shared/types/timestamp.py",
+        "src/shared/constants/__init__.py",
+        "src/shared/constants/common.py",
+        "src/tasks/__init__.py",
+        "src/tasks/worker.py",
+        "src/tasks/jobs/__init__.py",
+        "src/tasks/jobs/email_jobs.py",
+        "src/tasks/jobs/report_jobs.py",
+        "src/tasks/jobs/cleanup_jobs.py",
+        {
+            "path": "src/tasks/event_workers/__init__.py",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "src/tasks/event_workers/user_event_worker.py",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "src/tasks/event_workers/order_event_worker.py",
+            "condition": "$EDA == true"
+        },
+        {
+            "path": "src/tasks/event_workers/notification_worker.py",
+            "condition": "$EDA == true"
+        },
+        "main.py",
+        "run.py",
+        "pyproject.toml",
+        "requirements.txt",
+        "requirements-dev.txt",
+        ".env.development",
+        ".env.production",
+        ".env.test",
+        ".gitignore",
+        ".dockerignore",
+        ".pre-commit-config.yaml",
+        "Dockerfile",
+        "docker-compose.yml",
+        "justfile",
+        "pytest.ini",
+        "mypy.ini",
+        ".pylintrc",
+        ".flake8",
+        "alembic.ini",
+        "README.md"
+    ]
+}
