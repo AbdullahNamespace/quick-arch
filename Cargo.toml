@@ -9,7 +9,7 @@ repository = "https://github.com/AbdullahNamespace/quick-arch"
 homepage = "https://github.com/AbdullahNamespace/quick-arch"
 documentation = "https://docs.rs/quick-arch"
 readme = "README.md"
-keywords = ["scaffolding", "template", "architecture", "generator", "cli"]
+keywords = ["architecture", "cli", "tools", "generator", "productivity"]
 categories = ["command-line-utilities", "development-tools", "template-engine"]
 
 [[bin]]
